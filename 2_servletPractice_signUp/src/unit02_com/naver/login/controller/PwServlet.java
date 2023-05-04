@@ -28,7 +28,7 @@ public class PwServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		doGet(request, response);
 	}
 
