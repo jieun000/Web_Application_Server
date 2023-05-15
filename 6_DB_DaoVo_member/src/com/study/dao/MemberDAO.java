@@ -174,4 +174,44 @@ public class MemberDAO {
 		return vo;
 	}
 	
+	public int userCheck(String id, String pw) {
+		int result = -1; // 결과 저장 변수
+		
+		String sql = "select pw from member where userid=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(rs.getString("pw") != null && rs.getString("pw").equals(pw)) {
+					result = 1; //아이디 비번 모두 일치
+				} else {
+					result = 0; //아이디는 일치, 비번은 일치하지 않음
+				}
+		} else {
+			result = -1; // 입력한 아이디가 없음
+		}
+	} catch(Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			if(rs != null)
+				rs.close();
+			if(pstmt != null)
+				pstmt.close();
+			if(conn != null)
+				conn.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	} 
+		return result;
+	}
 }
