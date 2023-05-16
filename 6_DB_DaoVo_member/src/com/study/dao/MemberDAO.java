@@ -36,7 +36,7 @@ public class MemberDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into member value(?, ?, ?, ?, ?, ?";
+		String sql = "insert into member values(?, ?, ?, ?, ?, ?)";
 		
 		try {
 			conn = getConnection();

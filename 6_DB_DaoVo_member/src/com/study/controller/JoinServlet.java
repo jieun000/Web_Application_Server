@@ -22,7 +22,7 @@ public class JoinServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("urf-8");
+		request.setCharacterEncoding("utf-8");
 		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
