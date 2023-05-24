@@ -133,12 +133,20 @@
 					source="org.eclipse.jst.jee.server:5_" />
 				<Context docBase="6_DB_DaoVo_member" path="/DB_DaoVo_member"
 					reloadable="true"
-					source="org.eclipse.jst.jee.server:6_DB_DaoVo_member" >
-					<Resource name="jdbc/myoracle" auth="Container"
-		              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
-		              url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-		              username="study" password="1234" maxTotal="20" maxIdle="10"
-		              maxWaitMillis="-1"/> 
+					source="org.eclipse.jst.jee.server:6_DB_DaoVo_member">
+					<Resource auth="Container"
+						driverClassName="oracle.jdbc.OracleDriver" maxIdle="10"
+						maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="study" />
+				</Context>
+				<Context docBase="7_board" path="/board" reloadable="true"
+					source="org.eclipse.jst.jee.server:7_board" >
+					<Resource auth="Container"
+						driverClassName="oracle.jdbc.OracleDriver" maxIdle="10"
+						maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="study" />
 				</Context>
 			</Host>
 		</Engine>
