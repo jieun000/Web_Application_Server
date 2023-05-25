@@ -141,7 +141,16 @@
 						url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="study" />
 				</Context>
 				<Context docBase="7_board" path="/board" reloadable="true"
-					source="org.eclipse.jst.jee.server:7_board" >
+					source="org.eclipse.jst.jee.server:7_board">
+					<Resource auth="Container"
+						driverClassName="oracle.jdbc.OracleDriver" maxIdle="10"
+						maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="study" />
+				</Context>
+				<Context docBase="8_shoppingMall" path="/shoppingMall"
+					reloadable="true"
+					source="org.eclipse.jst.jee.server:8_shoppingMall" >
 					<Resource auth="Container"
 						driverClassName="oracle.jdbc.OracleDriver" maxIdle="10"
 						maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"

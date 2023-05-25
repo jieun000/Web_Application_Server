@@ -12,7 +12,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<div>
-				<a class="btn btn-outline-light" href="">홈</a>
+				<a class="btn btn-outline-light" href="index.jsp">홈</a>
 				<a class="btn btn-outline-light" href="">게시판</a>
 				<a class="btn btn-outline-light" href="">글작성</a>
 				<a class="btn btn-outline-light" href="">로그인</a>
