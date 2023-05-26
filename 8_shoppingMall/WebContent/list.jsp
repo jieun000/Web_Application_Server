@@ -32,5 +32,6 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<a href="addProduct.jsp">상품 등록</a>
 </body>
 </html>

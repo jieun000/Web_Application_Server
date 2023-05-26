@@ -55,4 +55,28 @@ public class ProductDAO {
 		}
 		return l;
 		}
+	
+	// Product DB 데이터 추가
+	public void add(ProductVO vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "insert into product values(product_seq.nextval, ?, ?, ?, ?)";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getName());
+			pstmt.setInt(2, vo.getPrice());
+			pstmt.setString(3, vo.getPictureurl());
+			pstmt.setString(4, vo.getDescription());
+			
+			pstmt.executeUpdate(); // 실행 코드
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
 	}
