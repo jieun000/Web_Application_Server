@@ -39,7 +39,7 @@ public class DBManager {
 		}
 	}
 
-	// insert 사용 후 해제
+	// insert, delete 사용 후 해제
 	public static void close(Connection conn, PreparedStatement pstmt) {
 		try {	// DBManager.close(conn, pstmt);로 호출
 			if(pstmt != null)

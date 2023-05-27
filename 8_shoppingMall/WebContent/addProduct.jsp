@@ -15,7 +15,7 @@
 		사진: <input type="file" name="pictureurl"><br>
 		설명: <textarea rows="5" cols="50" name=description></textarea>
 		<input type="submit" value="등록">
-		<input type="button" value="목록" onclick="location.href='list.do'">
 	</form>
+	<input type="button" value="목록" onclick="location.href='list.do'">
 </body>
 </html>

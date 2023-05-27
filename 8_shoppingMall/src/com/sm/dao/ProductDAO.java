@@ -79,4 +79,24 @@ public class ProductDAO {
 		}
 	}
 	
+	// Product DB 데이터 삭제
+	public void delete(int code) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from product where code=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, code);
+			
+			pstmt.executeUpdate(); 
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
 	}

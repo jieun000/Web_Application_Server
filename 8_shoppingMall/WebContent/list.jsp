@@ -28,7 +28,7 @@
 				<td>${product.description}</td> 
 				
 				<td><a>수정</a></td> 
-				<td><a>삭제</a></td> 
+				<td><a href="delete.do?code=${product.code}">삭제</a></td> 
 			</tr>
 		</c:forEach>
 	</table>
