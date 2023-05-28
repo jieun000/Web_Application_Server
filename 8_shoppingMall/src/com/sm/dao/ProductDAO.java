@@ -56,7 +56,7 @@ public class ProductDAO {
 		return l;
 		}
 	
-	// Product DB 데이터 추가
+	// Product DB 데이터 추가하는 메서드
 	public void add(ProductVO vo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -79,7 +79,7 @@ public class ProductDAO {
 		}
 	}
 	
-	// Product DB 데이터 삭제
+	// Product DB 데이터 삭제하는 메서드
 	public void delete(int code) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -97,6 +97,38 @@ public class ProductDAO {
 		} finally {
 			DBManager.close(conn, pstmt);
 		}
+	}
+	
+	// 코드에 해당하는 상품 정보를 조회하는 메서드
+	public ProductVO select(int code) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from product where code=?";
+		ProductVO vo = new ProductVO();
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, code);
+			rs = pstmt.executeQuery();
+			
+			// rs.next()는 저장 결과가 없을 때는 안 됨
+			if(rs.next()) {
+				vo.setCode(rs.getInt("code"));
+				vo.setName(rs.getString("name"));
+				vo.setPrice(rs.getInt("price"));
+				vo.setPictureurl(rs.getString("pictureurl"));
+				vo.setDescription(rs.getString("description"));
+			} 
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return vo;
 	}
 	
 	}

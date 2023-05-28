@@ -25,7 +25,7 @@ public class DBManager {
 		return conn;
 	}
 	
-	// select 사용 후 해제 메서드
+	// list, select 사용 후 해제 메서드
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
 		try {	// DBManager.close(conn, pstmt, rs);로 호출
 			if(rs != null)
