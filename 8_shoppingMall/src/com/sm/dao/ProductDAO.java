@@ -21,7 +21,7 @@ public class ProductDAO {
 		return instance;
 	}
 	
-	// product DB목록 보기
+	// product DB목록 보기 메서드
 	public List<ProductVO> list() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -131,4 +131,29 @@ public class ProductDAO {
 		return vo;
 	}
 	
+	// Product DB 데이터 수정하는 메서드
+	public void update(ProductVO vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update product set name=?, price=?, pictureurl=?, description=? where code=?";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getName());
+			pstmt.setInt(2, vo.getPrice());
+			pstmt.setString(3, vo.getPictureurl());
+			pstmt.setString(4, vo.getDescription());
+			pstmt.setInt(5, vo.getCode());
+			
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
 	}
+	
+}

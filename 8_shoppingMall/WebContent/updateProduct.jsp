@@ -16,14 +16,14 @@
 	<c:if test="${!empty product.pictureurl}">
 		<img src="upload/${product.pictureurl}" width="100px" height="100px">
 	</c:if>
-	<form method="post" action="update.do" enctype="multipart/form-date">
+	<form method="post" action="update.do" enctype="multipart/form-data">
 		<input type="hidden" name="code" value="${product.code}">
 		상품명: <input type="text" name="name" value="${product.name}"><br>
 		가격: <input type="text" name="price" value="${product.price}"><br>
 		사진: <input type="file" name="pictureurl"><br>
-		설명: <textarea rows="5" name="description">${product.description}</textarea><br>
+		설명: <textarea rows="5" cols="50" name="description">${product.description}</textarea><br>
 		<input type="submit" value="수정">
 	</form>
-	<input type="button" value="목록" onclick="loation.href='list.do'">
+	<input type="button" value="목록" onclick="location.href='list.do'">
 </body>
 </html>
