@@ -23,9 +23,9 @@ public class SendServlet extends HttpServlet {
 		String content = request.getParameter("content");
 		String msg;
 		
-		Mail mail = new Mail();
+		Mail_G mail = new Mail_G();
 		
-		int result = mail.SendMail(to, subject, content);
+		int result = mail.sendMail(to, subject, content);
 		if(result == 1) {
 			msg = "메일 전송 성공";
 		} else {

@@ -10,30 +10,31 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class Mail {
+public class Mail_G {
 
 	Properties serverInfo; // 서버 정보
 	Authenticator auth; // 인증 정보
 	String from = "email@Address.com";
 	
 	// 생성자
-	public Mail() {
+	public Mail_G() {
+		
 		serverInfo = System.getProperties();
 		
 		// 'tls 사용할 것인지' 정보 전달
 		serverInfo.put("mail.smtp.starttls.enable", "true");
-		serverInfo.put("mail.smtp.host", "smtp.naver.com");
-		serverInfo.put("mail.smtp.auth","true");
-		serverInfo.put("mail.smtp.prot", "587");
-		serverInfo.put("mail.smtp.ssl.trust", "smtp.naver.com");
+		serverInfo.put("mail.smtp.host", "smtp.gmail.com");
+		serverInfo.put("mail.smtp.auth", "true");
+		serverInfo.put("mail.smtp.prot", "589");
+		
+		serverInfo.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 		serverInfo.put("mail.smtp.socketFactory.fallback", "false");
 		serverInfo.put("mail.smtp.ssl.protocols", "TLSv1.2");
 		
 		auth = new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				// return new PasswordAuthentication(userName, password)
-				return new PasswordAuthentication(from, "password");
+				return new PasswordAuthentication(from, "googleAppPassword");
 			}
 		};
 	}
@@ -43,11 +44,9 @@ public class Mail {
 		int result; // 메일 전송 여부 결과
 		Session session = Session.getInstance(serverInfo, auth);
 		MimeMessage msg = new MimeMessage(session);
-		
 		try {
 			// 보내는 사람 메일 주소
-//			msg.setFrom(new InternetAddress(from);
-			msg.setFrom(new InternetAddress(from, "발신자명"));
+			msg.setFrom(new InternetAddress(from, "smtp"));
 			// 받는 사람 메일 주소
 			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 			msg.setSubject(subject); // 제목
@@ -61,4 +60,5 @@ public class Mail {
 		}
 		return result;
 	}
+	
 }
