@@ -16,5 +16,7 @@
 		<input id="msg" type="text" onkeyup="enterKey()">
 		<button id="senBtn" onclick="sendMsg()">전송</button>
 	</div>
+	
+	<script src="chat.js"></script>
 </body>
 </html>

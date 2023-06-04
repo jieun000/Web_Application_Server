@@ -10,6 +10,7 @@
 	<h1>채팅방 참여 페이지</h1>
 	대화방: <input id="id" type="text">
 	<button onclick="chatOpen()">채팅방 접속</button>
+	
 	<script>
 		function chatOpen() {
 			let id = document.querySelector('#id').value;
