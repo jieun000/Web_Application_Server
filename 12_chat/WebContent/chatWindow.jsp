@@ -11,10 +11,10 @@
 		대화명: <input id="id" type="text" value="${param.id}" readonly>
 		<button onclick="disconnect()">채팅 종료</button>
 	</div>
-	<div id="chatWindow"></div>
+	<div id="chatWindow" style="border: 1px solid black; width: 280px; height: 350px; overflow: scroll;"></div>
 	<div>
 		<input id="msg" type="text" onkeyup="enterKey()">
-		<button id="senBtn" onclick="sendMsg()">전송</button>
+		<button id="sendBtn" onclick="sendMsg()">전송</button>
 	</div>
 	
 	<script src="chat.js"></script>

@@ -19,7 +19,7 @@
 				alert('대화명을 입력하세요.');
 				return;
 			}
-			window.open("chatWindow.jsp?id=" + id, "+_blank", "width=300, height=450");
+			window.open("chatWindow.jsp?id=" + id, "_blank", "width=300, height=450");
 		}
 	</script>
 </body>

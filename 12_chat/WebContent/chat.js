@@ -42,3 +42,28 @@ webSocket.onerror = function(event) {
 	alert(event.data);
 	chatWindow.innerHTML += "채팅 서버 에러 발생<br>";
 }
+
+webSocket.onmessage = function(event) {
+	alert(event.data);
+	let rMsg = event.data.split(":");
+	console.log(rMsg);
+	let sender = rMsg[0]; // 보낸 사람 대화명
+	let content = rMsg[1]; // 받은 메세지
+	let id = document.querySelector("#id").value; // 내 대화명
+	
+	if(content != '') {
+		// DM일 경우
+		if(content.match('/')) {
+			// 내 대화명과 일치하는 경우에만 표시
+			if(content.match('/' + id)) {
+				let temp = content.replace('/' + id, sender + '[DM] : ');
+				chatWindow.innerHTML += "<div class='dm'>" + temp + "</div>";
+			} 
+		} 
+		// DM이 아닐 경우
+		else { 
+			chatWindow.innerHTML += "<div>" + sender + " : " + content + "</div>";
+		}
+	}
+	
+}
