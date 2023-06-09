@@ -1,6 +1,6 @@
 const url = "ws://localhost:8081/chat/chatServer";
 let webSocket = new WebSocket(url);
-let chatWindow; // 채팅장
+let chatWindow; // 채팅창
 let msg; // 메세지
 let id; // 아이디
 
@@ -13,8 +13,8 @@ window.onload = function() {
 // 메세지 전송 함수
 function sendMsg() {
 	chatWindow.innerHTML += "<div class='myMsg'>" + msg.value + "</div>";
-	webSocket.send(id.value + " : " + msg.value);
-	msg.value = ''; // 다시 빈 칸으로 만들기 위함
+	// webSocket.send(id.value + " : " + msg.value);
+	// msg.value = ''; // 다시 빈 칸으로 만들기 위함
 }
 
 // 서버 연결 종료
@@ -44,9 +44,9 @@ webSocket.onerror = function(event) {
 }
 
 webSocket.onmessage = function(event) {
-	alert(event.data);
+	// alert(event.data);
 	let rMsg = event.data.split(":");
-	console.log(rMsg);
+	// console.log(rMsg);
 	let sender = rMsg[0]; // 보낸 사람 대화명
 	let content = rMsg[1]; // 받은 메세지
 	let id = document.querySelector("#id").value; // 내 대화명

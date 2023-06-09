@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.dm {
+		color: red;
+	}
+	.myMsg {
+		color: blue;
+	}
+	
+</style>
 </head>
 <body>
 	<div>
