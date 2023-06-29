@@ -37,5 +37,16 @@ public class DBManager {
 		}
 	}
 	
+	// insert, update, delete 사용 후 해제 메서드
+	public static void close(Connection conn, PreparedStatement pstmt) {
+		try {
+			if(pstmt != null)
+				pstmt.close();
+			if(conn != null)
+				conn.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

@@ -12,7 +12,7 @@
 <body>
 	<div class="contaicer my-3">
 		<div class="text-end mb-2">
-			<a class="btn btn-primary" href="">영화 등록</a>
+			<a class="btn btn-primary" href="addMovie.jsp">영화 등록</a>
 		</div>
 		<table class="table text-center">
 			<thead class="table-light">
